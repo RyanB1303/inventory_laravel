@@ -3,7 +3,7 @@ require("./bootstrap");
 import Vue from "vue";
 import VueRouter from "vue-router";
 import App from "./components/App.vue";
-
+import Navbar from "./components/Navbar.vue";
 Vue.use(VueRouter);
 import { routes } from "./routes.js";
 // Vue.component(
@@ -12,13 +12,14 @@ import { routes } from "./routes.js";
 // );
 const router = new VueRouter({
     routes,
-    mode: "abstract" //change to history again to remove #
+    mode: "history" //change to history again to remove #
 });
 
 const app = new Vue({
     el: "#app",
     components: {
-        App
+        App,
+        Navbar
     },
     router
 });

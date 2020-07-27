@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h1>Welcome To AppName</h1>
+    <div class="jumbotron">
+      <h1>Welcome To RuangAdmin</h1>
+    </div>
     <router-view></router-view>
   </div>
 </template>

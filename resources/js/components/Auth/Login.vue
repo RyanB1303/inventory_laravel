@@ -12,36 +12,46 @@
                   </div>
                   <form class="user">
                     <div class="form-group">
-                      <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp"
-                        placeholder="Enter Email Address">
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="exampleInputEmail"
+                        aria-describedby="emailHelp"
+                        placeholder="Enter Email Address"
+                      />
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password">
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="exampleInputPassword"
+                        placeholder="Password"
+                      />
                     </div>
                     <div class="form-group">
-                      <div class="custom-control custom-checkbox small" style="line-height: 1.5rem;">
-                        <input type="checkbox" class="custom-control-input" id="customCheck">
-                        <label class="custom-control-label" for="customCheck">Remember
-                          Me</label>
+                      <div
+                        class="custom-control custom-checkbox small"
+                        style="line-height: 1.5rem;"
+                      >
+                        <input type="checkbox" class="custom-control-input" id="customCheck" />
+                        <label class="custom-control-label" for="customCheck">
+                          Remember
+                          Me
+                        </label>
                       </div>
                     </div>
                     <div class="form-group">
                       <a href="index.html" class="btn btn-primary btn-block">Login</a>
                     </div>
-                    <hr>
-                    <a href="index.html" class="btn btn-google btn-block">
-                      <i class="fab fa-google fa-fw"></i> Login with Google
-                    </a>
-                    <a href="index.html" class="btn btn-facebook btn-block">
-                      <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                    </a>
                   </form>
-                  <hr>
+                  <hr />
                   <div class="text-center">
-                    <a class="font-weight-bold small" href="register.html">Create an Account!</a>
+                    <router-link
+                      :to="{name: 'register'}"
+                      class="font-weight-bold small"
+                    >Create an Account!</router-link>
                   </div>
-                  <div class="text-center">
-                  </div>
+                  <div class="text-center"></div>
                 </div>
               </div>
             </div>
@@ -53,11 +63,8 @@
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style>
-
 </style>

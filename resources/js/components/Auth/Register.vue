@@ -60,17 +60,13 @@
                     <div class="form-group">
                       <button type="submit" class="btn btn-primary btn-block">Register</button>
                     </div>
-                    <hr />
-                    <a href="index.html" class="btn btn-google btn-block">
-                      <i class="fab fa-google fa-fw"></i> Register with Google
-                    </a>
-                    <a href="index.html" class="btn btn-facebook btn-block">
-                      <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
-                    </a>
                   </form>
                   <hr />
                   <div class="text-center">
-                    <a class="font-weight-bold small" href="login.html">Already have an account?</a>
+                    <router-link
+                      :to="{name: 'login'}"
+                      class="font-weight-bold small"
+                    >Already have an account?</router-link>
                   </div>
                   <div class="text-center"></div>
                 </div>
