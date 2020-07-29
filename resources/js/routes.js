@@ -4,7 +4,6 @@ const Dashboard = require("./components/Dahsboard.vue").default;
 const Table = require("./components/SimpleTable.vue").default;
 const DataTable = require("./components/DataTable.vue").default;
 const FormBasic = require("./components/FormBasic.vue").default;
-const FormAdvanced = require("./components/FormAdvanced.vue").default;
 const Chart = require("./components/Chart.vue").default;
 
 export const routes = [
@@ -37,11 +36,6 @@ export const routes = [
         path: "/form-basic",
         component: FormBasic,
         name: "form-basic"
-    },
-    {
-        path: "/form-advanced",
-        component: FormAdvanced,
-        name: "form-advanced"
     },
     {
         path: "/charts",

@@ -336,4 +336,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.btn-link {
+    color: #fafafa;
+}
+</style>
