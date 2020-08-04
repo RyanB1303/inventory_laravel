@@ -8,6 +8,9 @@ import VueRouter from "vue-router";
 import App from "./components/App.vue";
 import Navbar from "./components/Navbar.vue";
 import Sidebar from "./components/Sidebar.vue";
+<<<<<<< HEAD
+>>>>>>> 1e6a9e6199b1dc95b1217a875107636541b70dad
+=======
 >>>>>>> 1e6a9e6199b1dc95b1217a875107636541b70dad
 Vue.use(VueRouter);
 

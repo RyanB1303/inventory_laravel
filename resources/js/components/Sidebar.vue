@@ -1,5 +1,6 @@
 <template>
 <<<<<<< HEAD
+<<<<<<< HEAD
   <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
       <div class="sidebar-brand-icon">
@@ -141,6 +142,8 @@
   </ul>
   <!-- Sidebar -->
 =======
+=======
+>>>>>>> 1e6a9e6199b1dc95b1217a875107636541b70dad
     <ul
         class="navbar-nav sidebar sidebar-light accordion"
         id="accordionSidebar"
@@ -243,6 +246,9 @@
         <hr class="sidebar-divider" />
         <div class="version" id="version-ruangadmin"></div>
     </ul>
+<<<<<<< HEAD
+>>>>>>> 1e6a9e6199b1dc95b1217a875107636541b70dad
+=======
 >>>>>>> 1e6a9e6199b1dc95b1217a875107636541b70dad
 </template>
 
@@ -251,8 +257,12 @@ export default {};
 </script>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 <style>
 </style>
+=======
+<style></style>
+>>>>>>> 1e6a9e6199b1dc95b1217a875107636541b70dad
 =======
 <style></style>
 >>>>>>> 1e6a9e6199b1dc95b1217a875107636541b70dad
