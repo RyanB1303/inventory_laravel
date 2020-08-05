@@ -12,21 +12,13 @@
                   </div>
                   <form>
                     <div class="form-group">
-                      <label>First Name</label>
+                      <label>Name</label>
                       <input
                         type="text"
                         class="form-control"
                         id="exampleInputFirstName"
                         placeholder="Enter First Name"
-                      />
-                    </div>
-                    <div class="form-group">
-                      <label>Last Name</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="exampleInputLastName"
-                        placeholder="Enter Last Name"
+                        name="name"
                       />
                     </div>
                     <div class="form-group">
@@ -37,6 +29,7 @@
                         id="exampleInputEmail"
                         aria-describedby="emailHelp"
                         placeholder="Enter Email Address"
+                        name="email"
                       />
                     </div>
                     <div class="form-group">
@@ -46,6 +39,7 @@
                         class="form-control"
                         id="exampleInputPassword"
                         placeholder="Password"
+                        name="password"
                       />
                     </div>
                     <div class="form-group">

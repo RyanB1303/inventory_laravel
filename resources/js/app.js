@@ -2,21 +2,27 @@ require("./bootstrap");
 
 import Vue from "vue";
 import VueRouter from "vue-router";
+<<<<<<< HEAD
+
+=======
 import App from "./components/App.vue";
 import Navbar from "./components/Navbar.vue";
 import Sidebar from "./components/Sidebar.vue";
+<<<<<<< HEAD
+>>>>>>> 1e6a9e6199b1dc95b1217a875107636541b70dad
+=======
+>>>>>>> 1e6a9e6199b1dc95b1217a875107636541b70dad
 Vue.use(VueRouter);
-import { routes } from "./routes.js";
-// Vue.component(
-//     "example-component",
-//     require("./components/ExampleComponent.vue").default
-// );
-const router = new VueRouter({
-    routes,
-    mode: "history" //change to history again to remove #
-});
+
+Vue.component(
+    "example-component",
+    require("./components/ExampleComponent.vue").default
+);
 
 const app = new Vue({
+<<<<<<< HEAD
+    el: "#app"
+=======
     el: "#app",
     components: {
         App,
@@ -24,4 +30,5 @@ const app = new Vue({
         Sidebar
     },
     router
+>>>>>>> 1e6a9e6199b1dc95b1217a875107636541b70dad
 });
