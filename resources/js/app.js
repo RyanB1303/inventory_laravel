@@ -7,6 +7,8 @@ import Navbar from "./components/Navbar.vue";
 import Sidebar from "./components/Sidebar.vue";
 Vue.use(VueRouter);
 import { routes } from "./routes.js";
+import User from "./Helper/User.js";
+window.User = User;
 // Vue.component(
 //     "example-component",
 //     require("./components/ExampleComponent.vue").default

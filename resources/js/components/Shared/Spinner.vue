@@ -1,5 +1,5 @@
 <template>
-    <div class="overlay" v-if="show" @click.self="show = !show">
+    <div class="overlay" v-if="show">
         <fulfilling-bouncing-circle-spinner
             :animation-duration="4000"
             :size="60"
@@ -17,9 +17,7 @@ export default {
         FulfillingBouncingCircleSpinner
     },
     data() {
-        return {
-            show: true
-        };
+        return {};
     }
 };
 </script>

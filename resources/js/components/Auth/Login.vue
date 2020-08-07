@@ -99,7 +99,7 @@ export default {
             setTimeout(() => {
                 axios
                     .post("api/auth/login", this.form)
-                    .then(res => console.log(res.data))
+                    .then(res => User.responseAfterLogin(res))
                     .catch(err => console.log(err.response.data));
                 this.show = !this.show;
             }, 4000);
