@@ -1,6 +1,8 @@
 <template>
   <div class="component-login">
-    <Spinner :show="show"></Spinner>
+    <Spinner :show="show">
+      <fulfilling-bouncing-circle-spinner :animation-duration="500" :size="60" color="#ff1d5e" />
+    </Spinner>
     <div class="row justify-content-center">
       <div class="col-xl-10 col-lg-12 col-md-9">
         <div class="card shadow-sm my-5">
@@ -66,6 +68,8 @@
 
 <script>
 import Spinner from "../Shared/Spinner";
+import { FulfillingBouncingCircleSpinner } from "epic-spinners";
+
 export default {
   created() {
     if (User.loggedIn()) {
@@ -74,6 +78,7 @@ export default {
   },
   components: {
     Spinner,
+    FulfillingBouncingCircleSpinner,
   },
   data() {
     return {
