@@ -32,6 +32,9 @@ class User {
         }
         return false;
     }
+    logout() {
+        return localStorage.clear();
+    }
 }
 
 export default User = new User();

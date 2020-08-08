@@ -81,6 +81,11 @@
 <script>
 import Spinner from "../Shared/Spinner";
 export default {
+    created() {
+        if (User.loggedIn()) {
+            this.$router.push({ name: "dashboard" });
+        }
+    },
     components: {
         Spinner
     },
@@ -99,10 +104,24 @@ export default {
             setTimeout(() => {
                 axios
                     .post("api/auth/login", this.form)
-                    .then(res => User.responseAfterLogin(res))
-                    .catch(err => console.log(err.response.data));
-                this.show = !this.show;
-            }, 4000);
+                    .then(res => {
+                        User.responseAfterLogin(res);
+                        this.show = !this.show;
+                        Toast.fire({
+                            icon: "success",
+                            title: "Signed in successfully"
+                        });
+                        this.$router.push({ name: "dashboard" });
+                    })
+                    .catch(err => {
+                        this.show = !this.show;
+                        Toast.fire({
+                            icon: "warning",
+                            title: "Invalid Login"
+                        });
+                        this.errors = err.response.data.errors;
+                    });
+            }, 2000);
         }
     }
 };

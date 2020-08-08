@@ -8,6 +8,11 @@ const Chart = require("./components/Chart.vue").default;
 
 export const routes = [
     {
+        path: "/",
+        component: Login,
+        name: "Home"
+    },
+    {
         path: "/dashboard",
         component: Dashboard,
         name: "dashboard"
