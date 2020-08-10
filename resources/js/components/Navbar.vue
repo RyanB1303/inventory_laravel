@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top">
+  <nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top" v-show="show">
     <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
       <i class="fa fa-bars"></i>
     </button>
@@ -226,6 +226,11 @@
 <script>
 import $ from "jquery";
 export default {
+  beforeMount() {
+    if (!User.loggedIn()) {
+      this.show = false;
+    }
+  },
   mounted() {
     $("#sidebarToggle, #sidebarToggleTop").on("click", function (e) {
       $("body").toggleClass("sidebar-toggled");
@@ -234,6 +239,11 @@ export default {
         $(".sidebar .collapse").collapse("hide");
       }
     });
+  },
+  data() {
+    return {
+      show: true,
+    };
   },
 };
 </script>

@@ -95,6 +95,11 @@
 import Spinner from "../Shared/Spinner";
 import { SelfBuildingSquareSpinner } from "epic-spinners";
 export default {
+  created() {
+    if (User.loggedIn()) {
+      this.$router.push({ name: "dashboard" });
+    }
+  },
   components: {
     Spinner,
     SelfBuildingSquareSpinner,

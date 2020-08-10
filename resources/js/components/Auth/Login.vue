@@ -102,7 +102,7 @@ export default {
             icon: "success",
             title: "Signed in successfully",
           });
-          this.$router.push({ name: "dashboard" });
+          setTimeout(() => this.$router.go({ name: "dashboard" }), 1000);
         })
         .catch((err) => {
           this.show = false;

@@ -479,7 +479,10 @@ export default {
   },
   methods: {
     logout() {
-      console.log("logouted");
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
+      this.$router.go(this.$router.currentRoute);
+      console.log("logout success");
     },
   },
 };
