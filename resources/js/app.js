@@ -2,11 +2,14 @@ require("./bootstrap");
 
 import Vue from "vue";
 import VueRouter from "vue-router";
+import store from './store';
 import App from "./components/App.vue";
 import Navbar from "./components/Navbar.vue";
 import Sidebar from "./components/Sidebar.vue";
+
 Vue.use(VueRouter);
 import { routes } from "./routes.js";
+
 import User from "./Helper/User.js";
 window.User = User;
 
@@ -33,5 +36,6 @@ const app = new Vue({
         Navbar,
         Sidebar
     },
-    router
+    router,
+    store
 });

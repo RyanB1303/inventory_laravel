@@ -63,7 +63,7 @@
         >
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Tables</h6>
-            <router-link :to="{ name: 'table' }" class="collapse-item">Simple Table</router-link>
+            <router-link :to="{ name: 'table' }" class="collapse-item">Fruit Table</router-link>
             <router-link :to="{ name: 'data-table' }" class="collapse-item">Data Table</router-link>
           </div>
         </div>

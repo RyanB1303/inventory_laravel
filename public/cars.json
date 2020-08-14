@@ -1,0 +1,40 @@
+{
+    "cars": [
+    {   "id":1,
+        "manufacture":"Mercedes",
+        "tires":4,
+        "color":"red",
+        "price":24000
+    },
+    {   "id":2,
+        "manufacture":"BMW",
+        "tires":4,
+        "color":"blue",
+        "price":10000
+    },
+    {   "id":3,
+        "manufacture":"Toyota",
+        "tires":4,
+        "color":"green",
+        "price":17000
+    },
+    {   "id":4,
+        "manufacture":"Volkswagen",
+        "tires":4,
+        "color":"purple",
+        "price":56000
+    },{
+           "id":5,
+        "manufacture":"Honda",
+        "tires":4,
+        "color":"red",
+        "price":57000
+    },
+    {   "id":6,
+        "manufacture":"Nissan",
+        "tires":4,
+        "color":"black",
+        "price":92000
+    }
+]
+}

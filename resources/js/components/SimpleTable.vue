@@ -14,62 +14,57 @@
               <!-- Simple Tables -->
               <div class="card">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Simple Tables</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Fruit Tables</h6>
                 </div>
                 <div class="table-responsive">
                   <table class="table align-items-center table-flush">
                     <thead class="thead-light">
                       <tr>
                         <th>Order ID</th>
-                        <th>Customer</th>
-                        <th>Item</th>
-                        <th>Status</th>
-                        <th>Action</th>
+                        <th>Fruit</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td><a href="#">RA0449</a></td>
-                        <td>Udin Wayang</td>
-                        <td>Nasi Padang</td>
-                        <td><span class="badge badge-success">Delivered</span></td>
-                        <td><a href="#" class="btn btn-sm btn-primary">Detail</a></td>
-                      </tr>
-                      <tr>
-                        <td><a href="#">RA5324</a></td>
-                        <td>Jaenab Bajigur</td>
-                        <td>Gundam 90' Edition</td>
-                        <td><span class="badge badge-warning">Shipping</span></td>
-                        <td><a href="#" class="btn btn-sm btn-primary">Detail</a></td>
-                      </tr>
-                      <tr>
-                        <td><a href="#">RA8568</a></td>
-                        <td>Rivat Mahesa</td>
-                        <td>Oblong T-Shirt</td>
-                        <td><span class="badge badge-danger">Pending</span></td>
-                        <td><a href="#" class="btn btn-sm btn-primary">Detail</a></td>
-                      </tr>
-                      <tr>
-                        <td><a href="#">RA1453</a></td>
-                        <td>Indri Junanda</td>
-                        <td>Hat Rounded</td>
-                        <td><span class="badge badge-info">Processing</span></td>
-                        <td><a href="#" class="btn btn-sm btn-primary">Detail</a></td>
-                      </tr>
-                      <tr>
-                        <td><a href="#">RA1998</a></td>
-                        <td>Udin Cilok</td>
-                        <td>Baby Powder</td>
-                        <td><span class="badge badge-success">Delivered</span></td>
-                        <td><a href="#" class="btn btn-sm btn-primary">Detail</a></td>
+                      <tr v-for="(fruit,index) in fruits" :key="index">
+                        <td>{{ index+1 }}</td>
+                        <td>{{ fruit }}</td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
+                <div class="input-group">
+                  <input type="text" name="fruit" placeholder="add fruit" v-model="fruit" @keyup.enter="addFruit(fruit)">
+                  <button @click.prevent="addFruit(fruit)">Submit</button>
+                </div>
                 <div class="card-footer"></div>
               </div>
+              <div class="card">
+                <button class="btn btn-dark" @click.prevent="loadCar">Load Car</button>
+                <div class="table-responsive p-3">
+                  <table class="table align-items-center table-flush" id="dataTable" v-show="cars">
+                    <thead class="thead-light">
+                      <tr>
+                        <th>Id</th>
+                        <th>Manufacture</th>
+                        <th>Tires</th>
+                        <th>Color</th>
+                        <th>Price</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr v-for="car in cars" :key="car.id">
+                        <td>{{ car.id }} </td>
+                        <td>{{ car.manufacture }}</td>
+                        <td> {{ car.tires }} </td>
+                        <td> {{ car.color }} </td>
+                        <td> {{ car.price }} </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
             </div>
-          </div>
+              </div>
+            </div>
           <!--Row-->
 
           <!-- Modal Logout -->
@@ -78,7 +73,30 @@
 
 <script>
 export default {
-
+  data() {
+    return {
+      fruit: ''
+    }
+  },
+  computed: {
+    fruits(){
+      return this.$store.getters.fruitNtSort
+    },
+    cars(){
+      return this.$store.getters.allCars
+    }
+  },
+  methods: {
+    addFruit(fruit){
+      this.$store.commit('addFruit', fruit)
+      this.fruit = ''
+    },
+    loadCar(){
+      console.time('cars load')
+      let cars = this.$store.dispatch('GET_CARS')
+      console.timeEnd('cars load')
+    }
+  },
 }
 </script>
 
