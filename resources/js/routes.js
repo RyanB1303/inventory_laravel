@@ -5,6 +5,8 @@ const Table = require("./components/SimpleTable.vue").default;
 const DataTable = require("./components/DataTable.vue").default;
 const FormBasic = require("./components/FormBasic.vue").default;
 const Chart = require("./components/Chart.vue").default;
+const AddEmployee = require("./components/Employee/AddEmployee.vue").default;
+const AllEmployee = require("./components/Employee/AllEmployee.vue").default;
 
 export const routes = [
     {
@@ -46,5 +48,15 @@ export const routes = [
         path: "/charts",
         component: Chart,
         name: "charts"
+    },
+    {
+        path: "/add-employee",
+        component: AddEmployee,
+        name: "add-employee"
+    },
+    {
+        path: "/all-employee",
+        component: AllEmployee,
+        name: "all-employee"
     }
 ];

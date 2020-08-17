@@ -29,7 +29,7 @@
           aria-controls="collapseForm"
         >
           <i class="fab fa-fw fa-wpforms"></i>
-          <span>Forms</span>
+          <span>Employee</span>
         </a>
         <div
           id="collapseForm"
@@ -38,8 +38,8 @@
           data-parent="#accordionSidebar"
         >
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Forms</h6>
-            <router-link :to="{ name: 'form-basic' }" class="collapse-item">Form Basics</router-link>
+            <router-link :to="{ name: 'add-employee' }" class="collapse-item">Add Employee</router-link>
+            <router-link :to="{ name: 'all-employee' }" class="collapse-item">All Employee</router-link>
           </div>
         </div>
       </li>

@@ -1,0 +1,12 @@
+<template>
+  <div class="add-employee">
+    <h1>Add Employee</h1>
+  </div>
+</template>
+
+<script>
+export default {};
+</script>
+
+<style>
+</style>
