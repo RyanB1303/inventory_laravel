@@ -13,7 +13,7 @@
   <title>RuangAdmin - Dashboard</title>
   {{-- <link href="{{ asset('backend/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
   <link href="{{ asset('backend/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"> --}}
-  <link href="{{ asset('backend/css/ruang-admin.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('backend/css/ruang-admin.css') }}" rel="stylesheet">
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css' />
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css' />
   <link rel='stylesheet'
