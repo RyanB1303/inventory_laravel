@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use App\Employee;
 use Illuminate\Http\Request;
-use Image;
 use App\Http\Controllers\Controller;
+use Intervention\Image\Facades\Image;
 
 class EmployeeController extends Controller
 {
@@ -46,10 +46,11 @@ class EmployeeController extends Controller
             $sub = substr($request->photo, 0, $position);
             $ext = explode('/',$sub)[1];
             
-            $photoName = time().".".$ext;
-            $upload_path = '/backend/employee/';
-            $image_url = $upload_path.$photoName;
-            $image = Image::make($request->photo)->resize(200,200)->save($image_url);
+            $name = time().".".$ext;
+            $image = Image::make($request->photo)->resize(200,200);
+            $upload_path = 'backend/employee/';
+            $image_url = $upload_path.$name;
+            $image->save($image_url);
 
             
         $em->username = $request->username;

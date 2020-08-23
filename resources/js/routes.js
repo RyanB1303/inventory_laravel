@@ -7,11 +7,12 @@ const FormBasic = require("./components/FormBasic.vue").default;
 const Chart = require("./components/Chart.vue").default;
 const AddEmployee = require("./components/Employee/AddEmployee.vue").default;
 const AllEmployee = require("./components/Employee/AllEmployee.vue").default;
+const Home = require("./components/App.vue").default;
 
 export const routes = [
     {
         path: "/",
-        component: Login,
+        component: Home,
         name: "Home"
     },
     {

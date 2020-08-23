@@ -15,7 +15,7 @@
                 {{ emp | index }}
             </div>
     </div>-->
-    <div class="row">
+    <div class="row justify-content-center">
       <!-- Datatables -->
       <div class="col-lg-12">
         <div class="card mb-4">
@@ -23,9 +23,9 @@
             <table class="table align-items-center table-flush" id="dataTable">
               <thead class="thead-light">
                 <tr>
+                  <th>Prefix</th>
                   <th>Name</th>
-                  <th>Position</th>
-                  <th>Office</th>
+                  <th>LastName</th>
                   <th>Start date</th>
                   <th>Salary</th>
                   <th>Photo</th>
@@ -33,11 +33,11 @@
               </thead>
               <tbody>
                 <tr v-for="(emp, index) in employees" :key="index">
+                  <td>{{ emp.gender }}</td>
                   <td>{{ emp.first_name }}</td>
-                  <td>{{ emp.position }}</td>
-                  <td>{{ emp.city }}</td>
+                  <td>{{ emp.last_name }}</td>
                   <td>{{ emp.join_date }}</td>
-                  <td>{{ emp.salary }}</td>
+                  <td>{{ new Intl.NumberFormat('ID', { style: 'currency', currency: 'IDR'}).format(emp.salary) }}</td>
                   <td>
                     <img :src="emp.photo" alt="employee photo" style="width:100px;height:100px;" />
                   </td>
@@ -70,4 +70,13 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+td {
+  vertical-align: middle;
+  text-transform: capitalize;
+  text-align: center;
+}
+th {
+  text-align: center;
+}
+</style>

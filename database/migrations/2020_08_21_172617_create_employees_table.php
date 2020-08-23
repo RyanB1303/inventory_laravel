@@ -17,12 +17,12 @@ class CreateEmployeesTable extends Migration
             $table->id('id_employee');
             $table->string('username');
             $table->string('email');
-            $table->char('gender',2);
+            $table->char('gender',7);
             $table->string('first_name');
             $table->string('last_name');
             $table->integer('salary');
             $table->string('position');
-            $table->char('phone',15);
+            $table->char('phone',20);
             $table->string('city');
             $table->date('join_date');
             $table->longText('photo')->nullable();
@@ -33,15 +33,15 @@ class CreateEmployeesTable extends Migration
         DB::table('employees')->insert(array(
             'username' => 'admin',
             'email' => 'admin@admin.com',
-            'gender' => 'm',
+            'gender' => 'Mr.',
             'first_name' => 'admin1',
             'last_name' => 'admin2',
-            'salary' => '3000000',
+            'salary' => '3000',
             'position' => 'administrator',
             'phone' =>'000111222333',
             'city' =>'admin city',
             'join_date' => 20200220,
-            'photo'=> '/public/backend/img/man.png'
+            'photo'=> 'backend/img/man.png'
         ));
     }
 

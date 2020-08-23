@@ -39,8 +39,8 @@
           <div class="form-group input-group col-md-6">
             <div class="input-group-prepend">
               <select name="gender" class="form-control p-1 input-group-text" v-model="form.gender">
-                <option value="m">Mr.</option>
-                <option value="f">Mrs.</option>
+                <option value="Mr.">Mr.</option>
+                <option value="Mrs.">Mrs.</option>
               </select>
             </div>
             <input
@@ -150,7 +150,7 @@ export default {
         phone: "",
         city: "",
         joinDate: "",
-        // photo: "",
+        photo: "",
       },
     };
   },
