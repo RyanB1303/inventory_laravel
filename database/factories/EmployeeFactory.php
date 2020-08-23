@@ -4,15 +4,14 @@
 
 use App\Employee;
 use Faker\Generator as Faker;
-use Faker\Provider\id_ID;
 
 $factory->define(Employee::class, function (Faker $faker) {
     return [
         'username' => $faker->username,
             'email' => $faker->unique()->safeEmail,
-            'gender' => $faker->randomElement($array = array ('Mr.','Mrs.'))  ,
-            'first_name' => $faker->firstName($gender = 'male'|'female'),
-            'last_name' => $faker->lastName($gender = 'male'|'female'),
+            'gender' => $faker->title($gender = 'GENDER_MALE'|'GENDER_FEMALE')  ,
+            'first_name' => $faker->firstName($gender = 'GENDER_MALE'|'GENDER_FEMALE'),
+            'last_name' => $faker->lastName($gender = 'GENDER_MALE'|'GENDER_FEMALE'),
             'salary' => $faker->numberBetween($min = 5000, $max = 9000) ,
             'position' => 'factory insert',
             'phone' => $faker->phoneNumber,

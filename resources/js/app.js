@@ -33,7 +33,7 @@ const router = new VueRouter({
     routes,
     mode: "history" //change to history again to remove #
 });
-
+// Vue.component("pagination", require("laravel-vue-pagination"));
 const app = new Vue({
     el: "#app",
     components: {
