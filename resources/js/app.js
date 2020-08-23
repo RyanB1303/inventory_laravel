@@ -2,17 +2,19 @@ require("./bootstrap");
 
 import Vue from "vue";
 import VueRouter from "vue-router";
-import store from './store';
+import store from "./store";
 import App from "./components/App.vue";
 import Navbar from "./components/Navbar.vue";
 import Sidebar from "./components/Sidebar.vue";
+import Spinner from "./components/Shared/Spinner.vue";
 
+//Route list
 Vue.use(VueRouter);
 import { routes } from "./routes.js";
-
+// User Helper
 import User from "./Helper/User.js";
 window.User = User;
-
+//Sweet Alert
 import Swal from "sweetalert2";
 window.Swal = Swal;
 const Toast = Swal.mixin({
@@ -21,6 +23,9 @@ const Toast = Swal.mixin({
     showConfirmButton: false,
     timer: 1000
 });
+// Noty
+import Notifications from "./Helper/Notifications";
+window.Notifications = Notifications;
 
 window.Toast = Toast;
 
@@ -34,7 +39,8 @@ const app = new Vue({
     components: {
         App,
         Navbar,
-        Sidebar
+        Sidebar,
+        Spinner
     },
     router,
     store

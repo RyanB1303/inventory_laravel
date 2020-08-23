@@ -22,7 +22,7 @@
               type="text"
               class="form-control input-group"
               placeholder="Username"
-              aria-label="username"
+              v-model="form.username"
             />
           </div>
           <div class="form-group col-md-6">
@@ -30,7 +30,7 @@
               type="email"
               class="form-control"
               placeholder="Email Address"
-              aria-label="email"
+              v-model="form.email"
               name="email"
             />
           </div>
@@ -38,7 +38,7 @@
         <div class="form-row mb-3">
           <div class="form-group input-group col-md-6">
             <div class="input-group-prepend">
-              <select name="gender" class="form-control p-1 input-group-text">
+              <select name="gender" class="form-control p-1 input-group-text" v-model="form.gender">
                 <option value="m">Mr.</option>
                 <option value="f">Mrs.</option>
               </select>
@@ -47,7 +47,7 @@
               type="text"
               class="form-control"
               placeholder="First Name"
-              aria-label="First Name"
+              v-model="form.firstName"
               aria-describedby="basic-addon1"
             />
           </div>
@@ -56,7 +56,7 @@
               type="text"
               class="form-control"
               placeholder="Last Name"
-              aria-label="Last Name"
+              v-model="form.lastName"
               aria-describedby="basic-addon1"
             />
           </div>
@@ -66,10 +66,15 @@
             <div class="input-group-prepend">
               <span class="input-group-text">Rp.</span>
             </div>
-            <input type="text" class="form-control input-group" placeholder="Salary" name="salary" />
+            <input
+              type="text"
+              class="form-control input-group"
+              placeholder="Salary"
+              v-model="form.salary"
+            />
           </div>
           <div class="form-group col-md-6">
-            <input type="text" name="position" placeholder="Position" class="form-control" />
+            <input type="text" v-model="form.position" placeholder="Position" class="form-control" />
           </div>
         </div>
         <div class="form-row mb-3">
@@ -77,16 +82,10 @@
             <div class="input-group-prepend">
               <span class="input-group-text">+62</span>
             </div>
-            <input
-              type="tel"
-              name="phone"
-              placeholder="Phone Number"
-              aria-label="Phone Number"
-              class="form-control"
-            />
+            <input type="tel" v-model="form.phone" placeholder="Phone Number" class="form-control" />
           </div>
           <div class="form-group col-md-6">
-            <input type="text" name="city" placeholder="City" class="form-control" />
+            <input type="text" v-model="form.city" placeholder="City" class="form-control" />
           </div>
         </div>
         <div class="form-row mb-3">
@@ -95,7 +94,12 @@
               <div class="input-group-prepend">
                 <span class="input-group-text">Join Date</span>
               </div>
-              <input class="form-control input-group" type="date" id="example-date-input" />
+              <input
+                class="form-control input-group"
+                type="date"
+                id="example-date-input"
+                v-model="form.joinDate"
+              />
             </div>
             <div class="custom-file d-flex flex-row-reverse">
               <input
@@ -105,26 +109,91 @@
                 lang="ar"
                 id="customFile"
                 dir="rtl"
+                @change="imageSubmit"
               />
               <label class="custom-file-label text-right" for="customFile">Choose file</label>
             </div>
           </div>
           <div class="col-md-6">
             <img
-              src="https://picsum.photos/200/200?random=1"
+              :src="form.photo"
               alt="..."
               class="rounded mx-auto d-block"
+              style="
+                            height:200px;
+                            max-height:200px;
+                            width:200px;
+                            max-width:200px;
+                            "
             />
           </div>
         </div>
         <button class="btn btn-success w-100">Submit</button>
       </form>
+      <button class="btn btn-warning" @click="notify">Click me for notificartion</button>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      form: {
+        username: "",
+        email: "",
+        gender: "m",
+        firstName: "",
+        lastName: "",
+        salary: "",
+        position: "",
+        phone: "",
+        city: "",
+        joinDate: "",
+        // photo: "",
+      },
+    };
+  },
+  computed: {},
+  methods: {
+    notify() {
+      Notifications.warning();
+      // this.$store.commit("SHOW_LOGOUT");
+      // this.$store.commit("SHOW_SPINNER");
+    },
+    addEmployee() {
+      this.$store.commit("SHOW_SPINNER");
+      console.log(this.form);
+      setTimeout(() => {
+        axios
+          .post("api/employee/add", this.form)
+          .then((res) => {
+            this.$store.commit("HIDE_SPINNER");
+            Notifications.success();
+            console.log(res);
+            this.$router.push({ name: "all-employee" });
+          })
+          .catch((err) => {
+            this.$store.commit("HIDE_SPINNER");
+            console.log(err);
+            Notifications.failedInsert();
+          });
+      }, 2000);
+    },
+    imageSubmit(event) {
+      const file = event.target.files[0];
+      if (file.size > 1048770) {
+        Notifications.imageWarning();
+      } else {
+        let reader = new FileReader();
+        reader.onload = (event) => {
+          this.form.photo = event.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    },
+  },
+};
 </script>
 
 <style scoped>

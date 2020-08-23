@@ -32,3 +32,13 @@ Route::group([
     Route::post('me', 'AuthController@me');
 
 });
+
+
+
+Route::group([
+    'middleware'=>'api',
+    'prefix'=>'employee'
+], function($router) {
+    Route::post('add', 'Api\EmployeeController@store');
+    Route::get('all', 'Api\EmployeeController@index');
+});

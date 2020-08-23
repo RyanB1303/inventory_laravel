@@ -34,7 +34,7 @@
                     >
                         Cancel
                     </button>
-                    <a :href="logout" class="btn btn-primary">Logout</a>
+                    <a @click="logout" class="btn btn-primary">Logout</a>
                 </div>
             </div>
         </div>
@@ -43,10 +43,21 @@
 
 <script>
 export default {
-    props: ["modalShow"],
+    computed: {
+        modalShow() {
+            return this.$store.state.modalShow;
+        }
+    },
     methods: {
+        // logout() {
+        //     User.logout;
+        // },
         logout() {
-            User.logout;
+            localStorage.removeItem("token");
+            localStorage.removeItem("user");
+            this.$router.go(this.$router.currentRoute);
+
+            console.log("logout success");
         }
     }
 };

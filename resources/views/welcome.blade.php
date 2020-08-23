@@ -38,7 +38,7 @@
           <!-- Container Fluid-->
           <div class="container-fluid" id="container-wrapper">
             <app></app>
-
+            <spinner />
           </div>
           <!---Container Fluid-->
         </div>
