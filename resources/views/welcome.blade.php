@@ -37,8 +37,7 @@
 
           <!-- Container Fluid-->
           <div class="container-fluid" id="container-wrapper">
-            {{-- <app></app> --}}
-            <router-view></router-view>
+            <app></app>
             <spinner />
           </div>
           <!---Container Fluid-->
