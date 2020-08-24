@@ -18,3 +18,4 @@ phpunit.dusk.xml
 public/js/app.js
 /public/js/app.js
 .vscode
+/public/backend/employee
