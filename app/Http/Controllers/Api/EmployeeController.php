@@ -26,7 +26,6 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        
     }
 
     /**
@@ -41,18 +40,19 @@ class EmployeeController extends Controller
 
         $default_photo = '/backend/img/man.png';
 
-        if($request->photo){
+        if ($request->photo) {
             $position = strpos($request->photo, ';');
             $sub = substr($request->photo, 0, $position);
-            $ext = explode('/',$sub)[1];
+            $ext = explode('/', $sub)[1];
             
             $name = time().".".$ext;
-            $image = Image::make($request->photo)->resize(200,200);
+            $image = Image::make($request->photo)->resize(200, 200);
             $upload_path = 'backend/employee/';
             $image_url = $upload_path.$name;
             $image->save($image_url);
+            $default_photo = $image_url;
+        }
 
-            
         $em->username = $request->username;
         $em->email = $request->email;
         $em->gender = $request->gender;
@@ -63,26 +63,9 @@ class EmployeeController extends Controller
         $em->position = $request->position;
         $em->phone = $request->phone;
         $em->join_date = $request->joinDate;
-            $em->photo = $image_url;
+        $em->photo = $image_url;
         $em->save();
 
-        }
-        else {
-            
-        $em->username = $request->username;
-        $em->email = $request->email;
-        $em->gender = $request->gender;
-        $em->first_name = $request->firstName;
-        $em->last_name = $request->lastName;
-        $em->salary = $request->salary;
-        $em->city = $request->city;
-        $em->position = $request->position;
-        $em->phone = $request->phone;
-        $em->join_date = $request->joinDate;
-             $em->photo = $default_photo;
-        $em->save();
-
-        }
 
         // return response()->json($em, 200, $headers);
         // return  redirect()->action('Api\EmployeeController@index');
