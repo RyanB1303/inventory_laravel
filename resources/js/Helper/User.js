@@ -9,6 +9,11 @@ class User {
         if (Token.isValid(access_token)) {
             AppToken.store(access_token, username);
         }
+        Toast.fire({
+            icon: "success",
+            title: "Welcome ",
+            timer: 1000
+        });
     }
     hasToken() {
         const storeToken = localStorage.getItem("token");

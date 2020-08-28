@@ -7,6 +7,8 @@ import App from "./components/App.vue";
 import Navbar from "./components/Navbar.vue";
 import Sidebar from "./components/Sidebar.vue";
 import Spinner from "./components/Shared/Spinner.vue";
+// Mixins
+import mixin from "./mixin";
 
 //Route list
 Vue.use(VueRouter);
@@ -36,6 +38,7 @@ const router = new VueRouter({
 // Vue.component("pagination", require("laravel-vue-pagination"));
 const app = new Vue({
     el: "#app",
+    mixins: [mixin],
     components: {
         App,
         Navbar,

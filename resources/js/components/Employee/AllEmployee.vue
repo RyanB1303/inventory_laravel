@@ -17,24 +17,22 @@
         <div class="card mb-4">
           <div class="table-responsive p-3">
             <!-- Search Bar -->
-            <search-bar></search-bar>
+            <search-bar v-model="searchInput" />
             <table class="table align-items-center table-flush" id="dataTable">
               <thead class="thead-light">
                 <tr>
-                  <th>Prefix</th>
                   <th>Name</th>
-                  <th>LastName</th>
-                  <th>Start date</th>
-                  <th>Salary</th>
                   <th>Photo</th>
+                  <th>Salary</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(emp, index) in employees.data" :key="index">
-                  <td>{{ emp.gender }}</td>
+                <tr v-for="(emp, index) in filterSearch" :key="index">
                   <td>{{ emp.first_name }}</td>
-                  <td>{{ emp.last_name }}</td>
-                  <td>{{ emp.join_date }}</td>
+                  <td>
+                    <img :src="emp.photo" alt="employee photo" style="width:100px;height:100px;" />
+                  </td>
                   <td>
                     {{
                     new Intl.NumberFormat("ID", {
@@ -44,7 +42,8 @@
                     }}
                   </td>
                   <td>
-                    <img :src="emp.photo" alt="employee photo" style="width:100px;height:100px;" />
+                    <button class="btn btn-warning">Edit</button>
+                    <button class="btn btn-danger mx-2">Delete</button>
                   </td>
                 </tr>
               </tbody>
@@ -66,8 +65,18 @@ export default {
   },
   data() {
     return {
-      employees: {},
+      employees: { data: [] },
+      searchInput: "",
     };
+  },
+  computed: {
+    filterSearch() {
+      return this.employees.data.filter((employee) => {
+        return employee.first_name
+          .toLowerCase()
+          .match(this.searchInput.toLowerCase());
+      });
+    },
   },
   components: {
     pagination,
@@ -79,10 +88,9 @@ export default {
       axios
         .get("/api/employee/all?page=" + page)
         .then((res) => {
-          console.log(res);
           this.employees = res.data;
         })
-        .catch((err) => console.log(err));
+        .catch((err) => Notifications.warning());
     },
   },
 };
